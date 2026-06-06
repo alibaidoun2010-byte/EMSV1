@@ -454,7 +454,7 @@ body {
 body {
   font-family: 'Tajawal', sans-serif;
   margin: 0;
-  background: #fff url('/assets/images/pattern4.jpg') repeat; /* استبدل باسم ملف الصورة */
+  background: #fff url('assets/images/pattern4.jpg') repeat; /* استبدل باسم ملف الصورة */
   color: #1a237e;
   padding: 1rem;
   position: relative;
