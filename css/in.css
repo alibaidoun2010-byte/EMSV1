@@ -6,6 +6,7 @@ body {
       overflow-x: hidden;
     }
 
+
     /* شاشة البداية - الحل البديل */
 #splash {
   position: fixed; top: 0; left: 0;
