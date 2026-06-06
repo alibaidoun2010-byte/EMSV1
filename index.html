@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <!-- إضافة في الـ head -->
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" type="image/x-icon" href="icon.png?v=1.0">
+  <meta name="theme-color" content="#ff5722">
+  <meta charset="UTF-8">
+  <title>مطعمي</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/in.css">
+</head>
+<body>
+  <!-- شاشة البداية -->
+  <div id="splash">
+    <img id="splashLogo" alt="لوغو المطعم">
+  </div>
+
+ 
+ <!-- القائمة الجانبية -->
+<div id="sidebar" class="sidebar">
+  <img id="sidebarLogo" alt="لوغو">
+  
+  <div class="sidebar-item" id="rateOrderBtn">
+    <span class="text">التقييم</span>
+    <img src="assets/images/ratingicon2.png" class="sidebar-icon" alt="تقييم الطلب">
+  </div>
+
+  <div class="sidebar-item" id="reserveTableBtn">
+    <span class="text">حجز طاولة</span>
+    <img src="assets/images/tableRESicon2.png" class="sidebar-icon" alt="حجز طاولة">
+  </div>
+</div>
+
+  <!-- الصفحة الرئيسية -->
+  <div id="main">
+    <div class="menu-btn" onclick="toggleSidebar()">
+      <span class="bar bar1"></span>
+      <span class="bar bar2"></span>
+      <span class="bar bar3"></span>
+
+    </div>
+
+    <div class="tabs" id="tabsContainer">
+      <!-- tabs will be rendered here dynamically -->
+      <div class="indicator" id="tabsIndicator"></div>
+    </div>
+
+    <div id="content">
+      
+      <!-- سيتم تحميل العناصر من Supabase -->
+      <p id="emptyHint" style="color:#666;">جارٍ تحميل القوائم...</p>
+    </div>
+  </div>
+
+  <!-- زر طلبي عصري -->
+<button class="floating-btn" id="orderBtn">
+  <span class="cart-text">طلبي</span>
+  <img src="assets/images/carticon3.png" alt="سلة التسوق">
+  <span class="cart-badge" id="cartBadge" style="display: none;">0</span>
+</button>
+
+  <!-- نافذة الطلب -->
+  <div class="modal" id="orderModal">
+    <div class="modal-content">
+      <h2>ملخص الطلب</h2>
+      <div id="orderItems"></div>
+      <input type="number" id="tableNumber" placeholder="رقم الطاولة">
+      <textarea id="orderNotes" placeholder="ملاحظات"></textarea>
+      <button id="sendOrderBtn">إرسال الطلب</button>
+    </div>
+  </div>
+
+  <!-- نافذة تثبيت التطبيق -->
+<div class="install-modal" id="installModal">
+  <div class="install-content">
+    <div class="install-icon">
+      <img id="installLogo" alt="لوغو المطعم">
+    </div>
+    <div class="install-title">تثبيت التطبيق</div>
+    <div class="install-text">
+      ثبّت التطبيق على جهازك لتستفيد من خدمات حجز الطاولة و التقييم !
+      <br><br>
+      <small>سيتم إضافة أيقونة التطبيق إلى شاشتك الرئيسية</small>
+    </div>
+    <div class="install-buttons">
+      <div id="installMessage" class="message"></div>
+      <button class="install-btn" id="confirmInstall">تثبيت التطبيق</button>
+      <button class="install-btn secondary" id="cancelInstall">لاحقاً</button>
+
+    </div>
+  </div>
+</div>
+<script type="module" src="js/in.js"></script>
+</body>
+</html>
