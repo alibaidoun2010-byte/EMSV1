@@ -1,0 +1,488 @@
+body {
+      font-family: 'Tajawal', sans-serif;
+      margin: 0;
+      background: #fff;
+      color: #1a237e;
+      padding: 1rem;
+    }
+    h2 { text-align:center; margin-bottom:20px; }
+
+    /* بطاقات الطلب */
+    .order-card {
+      display: flex; align-items: center;
+      border: 2px solid #1a237e; border-radius: 12px;
+      padding: 10px; margin-bottom: 12px;
+      transition: box-shadow 0.25s ease;
+    }
+    .order-card:hover { box-shadow: 0 6px 16px rgba(26,35,126,0.1); }
+    .order-card img {
+      width: 70px; height: 70px; border-radius: 10px; margin-left: 12px; object-fit: cover;
+    }
+    .order-info { flex: 1; }
+    .order-info h3 { margin: 0; font-size: 18px; }
+    .order-info p { margin: 0; font-size: 14px; color: #777; }
+
+    /* النجوم */
+    .stars { display: flex; justify-content: center; margin: 20px 0; gap: 8px; }
+    .star {
+      font-size: 32px; cursor: pointer;
+      color: #ccc; transition: color 0.2s;
+    }
+    .star.active { color: #ffb400; }
+
+    /* الملاحظات */
+    textarea {
+      width: 100%; border: 1px solid #ccc; border-radius: 10px;
+      padding: 10px; font-size: 14px; margin-bottom: 15px;
+    }
+
+    /* زر الإرسال */
+    button {
+      background: #ff5722; color: white; font-weight: bold;
+      padding: 12px; width: 100%; border: none; border-radius: 30px;
+      cursor: pointer; font-size: 16px;
+      box-shadow: 0 6px 20px rgba(255,87,34,0.2);
+    }
+
+    .back-button {
+      display: inline-block;
+      margin-bottom: 20px;
+      text-decoration: none;
+      color: #1a237e;
+      font-weight: bold;
+      font-size: 16px;
+      background: #e0e0e0;
+      padding: 8px 12px;
+      border-radius: 8px;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .back-button:hover {
+      background: #1a237e;
+      color: #fff;
+    }
+
+/* 🔹 تصميم التنبيه العصري */
+.custom-alert {
+  position: fixed;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: white;
+  border-radius: 12px;
+  padding: 16px 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  z-index: 10000;
+  opacity: 0;
+  transition: opacity 0.3s ease, top 0.5s ease;
+  max-width: 320px;
+  width: 90%;
+  border: 1px solid #f0f0f0;
+  font-family: 'Tajawal', sans-serif;
+}
+
+.custom-alert.show {
+  opacity: 1;
+  top: 80%;
+}
+
+.custom-alert.hide {
+  opacity: 0;
+  top: 100%;
+}
+
+.alert-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #ff5252;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.alert-content {
+  flex: 1;
+  color: #333;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+/* 🔹 تصميم التنبيه العصري للنجاح */
+.custom-alert.success .alert-icon {
+  background: #4caf50; /* اللون الأخضر */
+}
+
+.custom-alert.success .alert-icon::before {
+  content: '✓';
+}
+
+/* تصميم زر الإرسال العصري */
+.modern-send-btn {
+  position: relative;
+  background: linear-gradient(135deg, #ff5722, #ff8a65);
+  color: white;
+  font-weight: bold;
+  padding: 16px 24px;
+  width: 100%;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 18px;
+  font-family: 'Tajawal', sans-serif;
+  box-shadow: 
+    0 8px 25px rgba(255, 87, 34, 0.3),
+    0 4px 12px rgba(255, 87, 34, 0.2);
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  overflow: hidden;
+  margin-top: 10px;
+}
+
+.modern-send-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 
+    0 12px 35px rgba(255, 87, 34, 0.4),
+    0 6px 18px rgba(255, 87, 34, 0.3);
+  background: linear-gradient(135deg, #ff5722, #ff7043);
+}
+
+.modern-send-btn:active {
+  transform: translateY(-1px);
+  box-shadow: 
+    0 6px 20px rgba(255, 87, 34, 0.5),
+    inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* تأثير اللمعان عند المرور */
+.modern-send-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, 
+    transparent, 
+    rgba(255, 255, 255, 0.2), 
+    transparent
+  );
+  transition: left 0.8s ease;
+}
+
+.modern-send-btn:hover::before {
+  left: 100%;
+}
+
+/* النص والأيقونة */
+.btn-text {
+  position: relative;
+  z-index: 2;
+  transition: transform 0.3s ease;
+}
+
+.btn-icon {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s ease;
+}
+
+/* تأثير تحليق الطائرة */
+.modern-send-btn:hover .btn-icon {
+  transform: translateX(5px) scale(1.1);
+  animation: paperPlaneFly 0.6s ease-in-out;
+}
+
+@keyframes paperPlaneFly {
+  0% {
+    transform: translateX(0) scale(1);
+  }
+  50% {
+    transform: translateX(8px) scale(1.15);
+  }
+  100% {
+    transform: translateX(5px) scale(1.1);
+  }
+}
+
+/* تأثير الإرسال عند النقر */
+.modern-send-btn.sending {
+  background: linear-gradient(135deg, #4caf50, #66bb6a);
+  pointer-events: none;
+}
+
+.modern-send-btn.sending .btn-text {
+  transform: translateY(-100%);
+  opacity: 0;
+}
+
+.modern-send-btn.sending .btn-icon {
+  transform: translateX(0) scale(1);
+  animation: sendingAnimation 1.5s ease-in-out infinite;
+}
+
+@keyframes sendingAnimation {
+  0%, 100% {
+    transform: translateX(0) scale(1);
+  }
+  25% {
+    transform: translateX(8px) scale(1.1);
+  }
+  50% {
+    transform: translateX(15px) scale(1.2);
+  }
+  75% {
+    transform: translateX(8px) scale(1.1);
+  }
+}
+
+/* تأثير النجاح بعد الإرسال */
+.modern-send-btn.success {
+  background: linear-gradient(135deg, #4caf50, #66bb6a);
+}
+
+.modern-send-btn.success .btn-icon::before {
+  content: '✓';
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.modern-send-btn.success .btn-icon svg {
+  display: none;
+}
+
+/* تصميم متجاوب */
+@media (max-width: 480px) {
+  .modern-send-btn {
+    padding: 14px 20px;
+    font-size: 16px;
+    gap: 8px;
+  }
+  
+  .btn-icon svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+
+/* تحسين النجوم */
+.stars {
+  display: flex;
+  justify-content: center;
+  margin: 25px 0;
+  gap: 10px;
+}
+
+.star {
+  font-size: 36px;
+  cursor: pointer;
+  color: #e0e0e0;
+  transition: all 0.3s ease;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transform: scale(1);
+}
+
+.star:hover {
+  transform: scale(1.2);
+  color: #ffd700;
+}
+
+.star.active {
+  color: #ffb400;
+  transform: scale(1.3);
+  text-shadow: 0 4px 8px rgba(255, 180, 0, 0.3);
+  animation: starPop 0.3s ease;
+}
+
+@keyframes starPop {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(1.3);
+  }
+}
+
+
+/* تصميم زر العودة العصري */
+.modern-back-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #1a237e; /* اللون الكحلي */
+  color: white;
+  text-decoration: none;
+  padding: 12px 20px;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 16px;
+  margin-bottom: 25px;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  box-shadow: 
+    0 6px 20px rgba(26, 35, 126, 0.25),
+    0 3px 10px rgba(26, 35, 126, 0.2);
+  border: 2px solid transparent;
+  position: relative;
+  overflow: hidden;
+  font-family: 'Tajawal', sans-serif;
+}
+
+/* تأثير اللمعان عند المرور */
+.modern-back-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, 
+    transparent, 
+    rgba(255, 255, 255, 0.2), 
+    transparent
+  );
+  transition: left 0.6s ease;
+}
+
+.modern-back-button:hover::before {
+  left: 100%;
+}
+
+.modern-back-button:hover {
+  background: #283593; /* لون كحلي أفتح عند المرور */
+  transform: translateY(-3px);
+  box-shadow: 
+    0 10px 30px rgba(26, 35, 126, 0.35),
+    0 6px 15px rgba(26, 35, 126, 0.3);
+  color: white;
+}
+
+.modern-back-button:active {
+  transform: translateY(-1px);
+  box-shadow: 
+    0 4px 15px rgba(26, 35, 126, 0.4),
+    inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* الأيقونة */
+.back-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+  margin-left: 5px;
+}
+
+.modern-back-button:hover .back-icon {
+  transform: translateX(-4px);
+  animation: arrowBounce 0.6s ease-in-out;
+}
+
+@keyframes arrowBounce {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-6px);
+  }
+}
+
+/* النص */
+.back-text {
+  position: relative;
+  z-index: 2;
+  transition: transform 0.3s ease;
+}
+
+.modern-back-button:hover .back-text {
+  transform: translateX(2px);
+}
+
+/* تأثير النقر */
+.modern-back-button:active .back-icon {
+  transform: translateX(-2px) scale(0.95);
+}
+
+/* تصميم متجاوب */
+@media (max-width: 480px) {
+  .modern-back-button {
+    padding: 10px 16px;
+    font-size: 14px;
+    gap: 8px;
+    margin-bottom: 20px;
+  }
+  
+  .back-icon svg {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+/* تأثير إضافي للزر عند التحميل */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.modern-back-button {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+
+body {
+  font-family: 'Tajawal', sans-serif;
+  margin: 0;
+  background: #fff url('/assets/images/pattern4.jpg') repeat; /* استبدل باسم ملف الصورة */
+  color: #1a237e;
+  padding: 1rem;
+  position: relative;
+  min-height: 100vh;
+}
+
+/* طبقة شبه شفافة فوق الخلفية لتحسين قراءة النص */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.9);
+  z-index: -1;
+}
+
+.order-card {
+  background-color: rgba(255, 255, 255, 0.9);
+  /* باقي الأنماط كما هي */
+}
+
+textarea {
+  background-color: rgba(255, 255, 255, 0.9);
+  /* باقي الأنماط كما هي */
+}
+
+body {
+  background-attachment: fixed; /* يثبت الخلفية أثناء التمرير */
+}
