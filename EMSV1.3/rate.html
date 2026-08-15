@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#ff5722">
+  <link rel="icon" type="image/x-icon" href="icon.png?v=1.0">
+
+  <!-- نفس خط المشروع -->
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/rate.css">
+
+  <title>التقييم</title>
+</head>
+
+<body>
+
+  <a href="index.html" class="modern-back-button">
+    <span class="back-icon">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M19 12H5M12 19L5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </span>
+    <span class="back-text">عودة</span>
+  </a>
+
+  <div class="rate-wrapper">
+    <div class="rate-card">
+      <img class="rate-logo" src="assets/images/garden.jpg" alt="لوغو مطعم Garden">
+      <h1 class="rate-title">قيّم تجربتك في Garden</h1>
+      <p class="rate-subtitle">رأيك يساعدنا على تقديم خدمة أفضل</p>
+
+      <form id="rateForm" class="rate-form" novalidate>
+        <label class="field">
+          <span class="field-label">الاسم</span>
+          <input type="text" id="rateName" placeholder="اكتب اسمك" autocomplete="name" required>
+        </label>
+
+        <div class="field">
+          <span class="field-label">تقييمك</span>
+          <div class="stars" id="starsWrap">
+            <button type="button" class="star" data-value="1" aria-label="نجمة 1">★</button>
+            <button type="button" class="star" data-value="2" aria-label="نجمة 2">★</button>
+            <button type="button" class="star" data-value="3" aria-label="نجمة 3">★</button>
+            <button type="button" class="star" data-value="4" aria-label="نجمة 4">★</button>
+            <button type="button" class="star" data-value="5" aria-label="نجمة 5">★</button>
+          </div>
+          <span class="stars-hint" id="starsHint">اختر عدد النجوم</span>
+        </div>
+
+        <label class="field">
+          <span class="field-label">ملاحظاتك</span>
+          <textarea id="rateFeedback" rows="4" placeholder="شاركنا رأيك أو اقتراحك..."></textarea>
+        </label>
+
+        <button type="submit" class="rate-submit" id="rateSubmit">إرسال التقييم</button>
+      </form>
+    </div>
+  </div>
+
+  <script type="module" src="js/rate.js"></script>
+</body>
+</html>
